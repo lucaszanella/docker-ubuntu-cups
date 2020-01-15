@@ -16,3 +16,9 @@ CUPS server with a CUPS-PDF virtual printer
 `ErrorLog` and `PageLog` are sent to stderr.
 ### Entrypoint hooks
 Executable files in `/docker-entrypoint.d` are invoked just before `cupsd` is started using `run-parts`.
+
+### Usage Example
+```
+sudo docker build -t cups .
+sudo docker run -it -p 6310:631 -e ADMIN_USERNAME=admin -e CUPS_ADMIN_PASSWORD=admin -v $HOME/cups:/var/spool/cups-pdf/ANONYMOUS cups
+```
